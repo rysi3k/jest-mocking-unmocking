@@ -1,3 +1,12 @@
+const express = require('express')
+
 const v = require('./v');
 
-module.exports = v(process.env.OK)
+const app = express()
+
+app.get("/", (req, res) => {
+	res.send(v(req.query.ok));
+})
+//app.listen(3333)
+
+module.exports=app
